@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <button
         style={{
-          backgroundColor: color,
+          backgroundColor: isDisabled ? "gray" : color,
           color: "white",
           border: "none",
           padding: "5px 10px",
