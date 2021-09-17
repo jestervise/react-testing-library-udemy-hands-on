@@ -25,7 +25,7 @@ function App() {
         {buttonText}
       </button>
       <div>
-        <label for="checkbox-l">Enable/Disable button</label>
+        <label htmlFor="checkbox-l">Enable/Disable button</label>
         <input
           type="checkbox"
           id="checkbox-l"
