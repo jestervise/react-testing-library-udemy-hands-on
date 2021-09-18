@@ -2,6 +2,10 @@ import logo from "./logo.svg";
 import { useState, useEffect } from "react";
 import "./App.css";
 
+export function replaceCamelWithSpace(name) {
+  return name.replace(/\B([A-Z]\B)/g, " $1");
+}
+
 function App() {
   const [isDisabled, setIsDisabled] = useState(false);
   const [color, setColor] = useState("red");
@@ -25,7 +29,7 @@ function App() {
         {buttonText}
       </button>
       <div>
-        <label htmlFor="checkbox-l">Enable/Disable button</label>
+        <label htmlFor="checkbox-l">Disable button</label>
         <input
           type="checkbox"
           id="checkbox-l"
