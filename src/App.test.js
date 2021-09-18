@@ -4,16 +4,20 @@ import App, { replaceCamelWithSpace } from "./App";
 
 test("change color when click on the button", () => {
   render(<App />);
-  const button = screen.getByRole("button", { name: /change to blue/i });
-  expect(button).toHaveStyle("background-color: red");
+  const button = screen.getByRole("button", {
+    name: /change to Midnight Blue/i,
+  });
+  expect(button).toHaveStyle("background-color: MediumVioletRed");
   fireEvent.click(button);
-  expect(button).toHaveStyle("background-color: blue");
-  expect(button.textContent).toBe("Change To Red");
+  expect(button).toHaveStyle("background-color: MidnightBlue");
+  expect(button.textContent).toBe("Change To Medium Violet Red");
 });
 
 test("initial conditiions", () => {
   render(<App />);
-  const button = screen.getByRole("button", { name: /change to blue/i });
+  const button = screen.getByRole("button", {
+    name: /change to Midnight Blue/i,
+  });
   expect(button).toBeEnabled();
 
   const checkbox = screen.getByRole("checkbox", {
@@ -24,7 +28,9 @@ test("initial conditiions", () => {
 
 test("checkbox disables button on first click and enables on second click", () => {
   render(<App />);
-  const button = screen.getByRole("button", { name: /change to blue/i });
+  const button = screen.getByRole("button", {
+    name: /change to Midnight Blue/i,
+  });
   const checkbox = screen.getByRole("checkbox", {
     name: "Disable button",
   });
@@ -39,7 +45,9 @@ test("checkbox disables button on first click and enables on second click", () =
 
 test("check if the button turn grey when checkbox is clicked", () => {
   render(<App />);
-  const button = screen.getByRole("button", { name: /change to blue/i });
+  const button = screen.getByRole("button", {
+    name: /change to Midnight Blue/i,
+  });
   const checkbox = screen.getByRole("checkbox", {
     name: "Disable button",
   });
@@ -48,7 +56,7 @@ test("check if the button turn grey when checkbox is clicked", () => {
   fireEvent.click(checkbox);
   expect(button).toHaveStyle({ backgroundColor: "gray" });
   fireEvent.click(checkbox);
-  expect(button).toHaveStyle({ backgroundColor: "red" });
+  expect(button).toHaveStyle({ backgroundColor: "MediumVioletRed" });
 
   //flow 2
   fireEvent.click(button);
@@ -57,7 +65,7 @@ test("check if the button turn grey when checkbox is clicked", () => {
 
   //flow 3
   fireEvent.click(checkbox);
-  expect(button).toHaveStyle({ backgroundColor: "blue" });
+  expect(button).toHaveStyle({ backgroundColor: "MidnightBlue" });
 });
 
 describe("Replace Capital Letter Preceeding with space", () => {

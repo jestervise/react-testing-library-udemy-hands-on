@@ -6,11 +6,17 @@ export function replaceCamelWithSpace(name) {
   return name.replace(/\B([A-Z]\B)/g, " $1");
 }
 
+const MidnightBlue = "MidnightBlue";
+const MediumVioletRed = "MediumVioletRed";
+
 function App() {
   const [isDisabled, setIsDisabled] = useState(false);
-  const [color, setColor] = useState("red");
+  const [color, setColor] = useState(MediumVioletRed);
 
-  const buttonText = color === "red" ? "Change To Blue" : "Change To Red";
+  const buttonText =
+    color === MediumVioletRed
+      ? `Change To ${replaceCamelWithSpace(MidnightBlue)}`
+      : `Change To ${replaceCamelWithSpace(MediumVioletRed)}`;
 
   return (
     <div className="App">
@@ -23,7 +29,9 @@ function App() {
         }}
         disabled={isDisabled}
         onClick={() => {
-          color === "red" ? setColor("blue") : setColor("red");
+          color === MediumVioletRed
+            ? setColor(MidnightBlue)
+            : setColor(MediumVioletRed);
         }}
       >
         {buttonText}
